@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import throttle from 'lodash.throttle';
 import chunk from 'lodash.chunk';
 
 
@@ -14,7 +15,7 @@ export default function Loja() {
         api.get('/').then((responsaMANO) => {
             setProdutos(responsaMANO.data)
         });
-    });
+    }, []);
        
     return (
         <div className="container-fluid">

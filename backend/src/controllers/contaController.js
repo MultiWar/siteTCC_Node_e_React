@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     async index(req, resp) {
         /* const cpf = req.headers.cpf; */
-        const dados = await connection('tblUser')
+        const [dados] = await connection('tblUser')
         .where('idUser', req.userId)
         .select([
             'nome',
@@ -13,6 +13,7 @@ module.exports = {
             'fone',
             'endereco'
         ]);
+        console.log(req);
         return resp.json(dados);
     },
     async editAccountConfig (req, resp) {

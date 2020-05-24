@@ -52,7 +52,7 @@ module.exports = {
             return resp.send(token);
         }
         else {
-            return resp.send('Senha incorreta');
+            return resp.status(404).send({error: 'Senha incorreta'});
         }
     },
     async teste(req, resp) {

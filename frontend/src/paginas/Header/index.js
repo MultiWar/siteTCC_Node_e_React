@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {Link, useHistory} from 'react-router-dom';
+import {FiSearch} from 'react-icons/fi';
 import Cont from '../../services/context';
 
 import './styles.css';
@@ -8,8 +9,11 @@ import api from '../../services/api';
 export default function Header () {
     
     let contxt = useContext(Cont);
+    const history = useHistory();
     function Logout() {
         contxt.setToken('');
+        localStorage.removeItem('token');
+        history.push('/');
     }
 
     return (
@@ -21,9 +25,9 @@ export default function Header () {
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <form className="form-inline my-2 my-lg-0 mr-2">
                     <div className="input-group">
-                        <label className="sr-only" for="Busca">Digite sua busca</label>
+                        <label className="sr-only" htmlFor="Busca">Digite sua busca</label>
                         <input className="form-control" type="search" placeholder="Digite sua busca" aria-label="Search" id="Busca" />
-                        <Link to="/categorias/remedios/busca"><button className="btn btn-primary" type="submit">Buscar</button></Link>
+                        <Link to="/categorias/remedios/busca"><button className="btn btn-primary" type="submit"><FiSearch /></button></Link>
                     </div>
                 </form>
                 <ul className="navbar-nav">

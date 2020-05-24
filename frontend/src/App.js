@@ -16,11 +16,18 @@ import EditarConta from './paginas/EditarConta/index';
 import Cont from './services/context';
 
 function App() {
-    const [token, setToken] = useState('');
+    const [token, setToken] = useState(localStorage.getItem('token') ?? '');
+    const localStorageToken = localStorage.getItem('token');
     useEffect(() => {
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         console.log(api.defaults.headers);
     }, [token]);
+
+    useEffect(() => {
+        if(localStorageToken) {
+            setToken(localStorageToken)
+        }
+    });
 
     return (
         <BrowserRouter>
@@ -29,6 +36,7 @@ function App() {
                 <Switch>
                     <Route path="/" exact component={Loja} />
                     <Route path="/Login" component={Login} />
+                    <Route path="/Conta" component={Conta} />
                 </Switch>
             </Cont.Provider>
         </BrowserRouter>

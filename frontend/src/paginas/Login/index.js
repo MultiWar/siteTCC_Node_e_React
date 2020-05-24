@@ -23,6 +23,7 @@ export default function Login() {
         try {
             const response = await api.post('login', {cpfD: cpf, senhaD: senha});
             contxt.setToken(response.data);
+            localStorage.setItem('token', response.data);
             history.push('/');
         }
         catch(err) {
@@ -56,6 +57,7 @@ export default function Login() {
                                 <label className="sr-only" for="senha">Digite sua senha</label>
                                 <input className="form-legal form-control" type={visibilidadeSenha} placeholder="Senha"id="senha" 
                                     onChange= {e => setSenha(e.target.value)}
+                                    style={{outline: 'none'}}
                                 />
                                 <div className="input-group-append">
                                     <label for="mostrarSenha" className="sr-only">Mostrar/Esconder senha</label>

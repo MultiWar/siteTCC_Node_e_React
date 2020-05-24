@@ -11,11 +11,11 @@ const usuarioController = require('./controllers/usuariosController');
 const routes = express.Router();
 
 
-routes.post('/login', usuarioController.entrar); //colocado no React, quase funcionando
+routes.post('/login', usuarioController.entrar); //colocado no React, funciona.
 
 routes.use(authMiddleware);
 
-routes.get('/', lojaController.index); //colocado no, só falta fazer tudo
+routes.get('/', lojaController.index); //colocado no, quase funcionando
 routes.get('/categorias/remedios/busca', lojaController.busca); //colocado no, só falta fazer tudo
 routes.get('/categorias/:categoria', produtosController.index); //colocado no, só falta fazer tudo
 routes.get('/categorias', produtosController.index); //colocado no, só falta fazer tudo
@@ -26,7 +26,7 @@ routes.get('/categorias/remedios/principioativo', produtosController.principio);
 routes.post('/cadastro', usuarioController.cadastro); //colocado no, só falta fazer tudo
 routes.get('/logout', usuarioController.sair); //colocado no, só falta fazer tudo
 routes.get('/teste', usuarioController.teste); //colocado no, só falta fazer tudo
-routes.get('/conta', contaController.index); //colocado no, só falta fazer tudo
+routes.get('/conta', contaController.index); //colocado no, quase funcionando
 routes.post('/conta/editar', contaController.editAccountConfig); //colocado no, só falta fazer tudo
 
 //Falta adicionar:
