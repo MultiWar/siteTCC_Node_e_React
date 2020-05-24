@@ -6,4 +6,4 @@ Coisas legais utilizadas para a construção do projeto: Node, Express, Axios, K
 não me lembro agora e não estou afim de ir verificar (até pq estou indo dormir). Depois faço isso e edito esse arquivo para incluir tudo o 
 que foi utilizado e separar dependências do backend e do frontend.
 
-Só foi possível realizar tudo o que foi realizado por causa da ajuda do grande Sávio (https://github.com/savioacp)
+Só foi possível realizar tudo o que foi realizado por causa da ajuda do grande [@savioacp](https://github.com/savioacp)
