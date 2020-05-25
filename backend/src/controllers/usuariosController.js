@@ -20,10 +20,14 @@ module.exports = {
                 .where('cpf', cpfD)
                 .select('*');
             if (!user) {
-                const [usuario] = await connection('tblUser').insert(
+                const usuario = await connection('tblUser').insert(
                     {'idUser':id, 'cpf': cpfD, 'senha': senhaFinal, 'salt': saltI, 'nome': nomeD, 'fone': foneD, 'endereco': enderecoD}
                 );
-                return resp.json(usuario);
+                const token = jwt.sign({id: id, logged: true}, authConfig.secret, {
+                    expiresIn: 86400
+                });
+                console.log(usuario);
+                return resp.send(token);
             }
             else {
                 return resp.send('Usuário já cadastrado');

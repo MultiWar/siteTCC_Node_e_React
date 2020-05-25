@@ -8,7 +8,7 @@ import Loja from './paginas/Loja/index';
 import Cadastro from './paginas/Cadastro/index';
 import Login from './paginas/Login/index';
 import Conta from './paginas/Conta/index';
-import Produtos from './paginas/Produtos/index';
+import Remedios from './paginas/Remedios/index';
 import Busca from './paginas/Busca/index';
 import Tarja from './paginas/Tarja';
 import PrincipioAtivo from './paginas/PrincipioAtivo';
@@ -36,7 +36,9 @@ function App() {
                 <Switch>
                     <Route path="/" exact component={Loja} />
                     <Route path="/Login" component={Login} />
-                    <Route path="/Conta" component={Conta} />
+                    <Route path="/Conta" exact component={Conta} />
+                    <Route path="/Conta/editar" component={EditarConta} />
+                    <Route path="/Cadastro" component={Cadastro} />
                 </Switch>
             </Cont.Provider>
         </BrowserRouter>

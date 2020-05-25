@@ -34,36 +34,33 @@ export default function Login() {
     let estado = 'password';
 
     return (
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-md"></div>
-                <div className="col-md">
+        <div className="container-fluid pt-2">
+            <div className="row justify-content-center">
+                <div className="col-lg-2 justify-content-center">
                     <img src={imgConta} className="img-fluid mx-auto d-block"/>
                 </div>
-                <div className="col-md"></div>
             </div>
-            <div className="row">
-                <div className="col-md"></div>
-                <div className="col-md">
+            <div className="row justify-content-center">
+                <div className="col-lg-3 justify-content-center">
                     <form onSubmit={handleLogin}>
                         <div className="form-group">
-                            <label className="sr-only" for="cpf">Digite seu CPF</label>
+                            <label className="sr-only" htmlFor="cpf">Digite seu CPF</label>
                             <input className="form-legal form-control" type="text" placeholder="CPF" id="cpf" 
                                 onChange={e => setCpf(e.target.value)}
                             />
                         </div> 
                         <div className="form-group">
                             <div className="input-group">
-                                <label className="sr-only" for="senha">Digite sua senha</label>
+                                <label className="sr-only" htmlFor="senha">Digite sua senha</label>
                                 <input className="form-legal form-control" type={visibilidadeSenha} placeholder="Senha"id="senha" 
                                     onChange= {e => setSenha(e.target.value)}
                                     style={{outline: 'none'}}
                                 />
                                 <div className="input-group-append">
-                                    <label for="mostrarSenha" className="sr-only">Mostrar/Esconder senha</label>
-                                    {visibilidadeSenha == 'password' ? 
-                                    (<a className="btn btn-outline-primary" onClick={() => setVisibilidadeSenha('text')} id="mostrarSenha"><FaRegEyeSlash /></a>) : 
-                                    (<a className="btn btn-outline-primary" onClick={() => setVisibilidadeSenha('password')} id="mostrarSenha"><FaRegEye /></a>)}
+                                    <label htmlFor="mostrarSenha" className="sr-only">Mostrar/Esconder senha</label>
+                                    {visibilidadeSenha === 'password' ? 
+                                    (<a className="btn btn-outline-primary btn-showHide" onClick={() => setVisibilidadeSenha('text')} id="mostrarSenha"><FaRegEyeSlash className="iconeShowHide" /></a>) : 
+                                    (<a className="btn btn-outline-primary btn-showHide" onClick={() => setVisibilidadeSenha('password')} id="mostrarSenha"><FaRegEye className="iconeShowHide" /></a>)}
                                 </div>
                             </div>
                         </div>
@@ -71,7 +68,6 @@ export default function Login() {
                         <button className="btn btn-primary form-control" type="submit">Entrar</button>               
                     </form>
                 </div>
-                <div className="col-sm"></div>
             </div>
         </div>
     )

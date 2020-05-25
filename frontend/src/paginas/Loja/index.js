@@ -34,6 +34,12 @@ export default function Loja() {
                                 <div className="card-footer">
                                     <p className="card-text">Preço unitário: R$ {produto.precoUnitario}</p>
                                 </div>
+                                <div className="card-footer">
+                                    {produto.categoria == 'remédio' ? 
+                                        <Link className="btn btn-primary w-100" to={`/categorias/remedio/tarja/${produto.tarja}/${produto.nomeProduto}`} >Detalhes do produto</Link> : 
+                                        <Link className="btn btn-primary w-100" to={`/categorias/${produto.categoria}/${produto.nomeProduto}`} >Detalhes do produto</Link>
+                                    }
+                                </div>
                             </div>
                         )
                     }

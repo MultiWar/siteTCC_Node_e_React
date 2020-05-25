@@ -7,7 +7,8 @@ module.exports = {
                 'nomeProduto',
                 'descricao',
                 'categoria',
-                'precoUnitario'
+                'precoUnitario',
+                'tarja'
              ]);
         return resp.json(remedios);
     },

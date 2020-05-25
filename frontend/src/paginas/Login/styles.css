@@ -10,7 +10,33 @@
     border-top: 0 !important; 
     border-left: 0 !important;
     border-right: 0 !important;
-    border-bottom: 1px solid white;
     background: transparent;
     outline: none !important;
+}
+
+.btn-showHide {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btn-showHide:hover {
+    background: transparent !important; 
+    color: #333 !important;
+}
+
+.btn-showHide:focus {
+    background: transparent !important;
+    color: #333 !important;
+}
+
+.iconeShowHide:hover{
+    background: transparent !important;
+    color: #333 !important;
+    opacity:0.7 !important;
+}
+
+.iconeShowHide:focus {
+    background: transparent !important;
+    color: #333 !important;
 }

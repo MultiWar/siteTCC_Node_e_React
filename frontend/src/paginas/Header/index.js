@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {FiSearch} from 'react-icons/fi';
+import {FaSearch} from 'react-icons/fa';
 import Cont from '../../services/context';
 
 import './styles.css';
@@ -27,7 +27,7 @@ export default function Header () {
                     <div className="input-group">
                         <label className="sr-only" htmlFor="Busca">Digite sua busca</label>
                         <input className="form-control" type="search" placeholder="Digite sua busca" aria-label="Search" id="Busca" />
-                        <Link to="/categorias/remedios/busca"><button className="btn btn-primary" type="submit"><FiSearch /></button></Link>
+                        <Link to="/categorias/remedios/busca"><button className="btn btn-primary" type="submit"><FaSearch /></button></Link>
                     </div>
                 </form>
                 <ul className="navbar-nav">

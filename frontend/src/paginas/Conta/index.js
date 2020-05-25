@@ -19,10 +19,18 @@ export default function Conta() {
 
     return (
         <div className="container-fluid">
-            <div className="row">
-                <div className="col-md"></div>
-                <div className="col-md">
-                    <div className="card mt-4">
+            <div className="row justify-content-center mt-3">
+                <div className="col-md-3">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item active">Conta</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div className="row justify-content-center">
+                <div className="col-md-3">
+                    <div className="card mt-2">
                         <div className="card-header text-center pt-3 pb-1">
                             <h5 className="card-title">Informações da conta</h5>
                         </div>
@@ -31,7 +39,7 @@ export default function Conta() {
                                 <li className="list-group-item"><strong>Nome:</strong> {informacoes.nome}</li>
                                 <li className="list-group-item"><strong>CPF:</strong> {informacoes.cpf}</li>
                                 <li className="list-group-item"><strong>Telefone:</strong> {informacoes.fone}</li>
-                                <li className="list-group-item"><strong>Enredeço:</strong> {informacoes.endereco}</li>
+                                <li className="list-group-item"><strong>Endereço:</strong> {informacoes.endereco}</li>
                             </ul>
                         </div>
                         <div className="card-footer justify-content-center">
@@ -39,7 +47,6 @@ export default function Conta() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md"></div>
             </div>
         </div>
     )

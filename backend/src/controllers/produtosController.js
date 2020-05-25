@@ -55,5 +55,23 @@ module.exports = {
                 'precoUnitario'
             ]);
         return resp.json(resultados);
+    },
+    async remedio (req, resp) {
+        const tarja = req.params.tarja;
+        const nomeRemedio = req.params.nome;
+
+        const resultados = await connection('tblProduto')
+            .where('nomeProduto', 'like', nomeRemedio)
+            .select([
+                'nomeProduto',
+                'descricao',
+                'categoria',
+                'tarja',
+                'principioAtivo',
+                'precoUnitario',
+                'concentracao'
+            ]);
+
+        return resp.json(resultados);
     }
 }
