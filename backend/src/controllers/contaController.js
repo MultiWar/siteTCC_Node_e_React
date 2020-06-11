@@ -13,7 +13,6 @@ module.exports = {
             'fone',
             'endereco'
         ]);
-        console.log(req);
         return resp.json(dados);
     },
     async editAccountConfig (req, resp) {

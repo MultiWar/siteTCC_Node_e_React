@@ -117,11 +117,13 @@ export default function EditarConta() {
                                     <li className="list-group-item"><strong>CPF: </strong>{dados.cpf}</li>
                                     <li className="list-group-item"><strong>Telefone: </strong>
                                         <input type="text" className="form-control" placeholder='Altere seu telefone'
+                                            value={dados.fone}
                                             onChange={e => setTelefone(e.target.value)}
                                         />
                                     </li>
                                     <li className="list-group-item"><strong>Endereço: </strong>
                                         <input type="text" className="form-control" placeholder='Altere seu endereço'
+                                            value={dados.endereco}
                                             onChange={e => setEndereco(e.target.value)}
                                         />
                                     </li>

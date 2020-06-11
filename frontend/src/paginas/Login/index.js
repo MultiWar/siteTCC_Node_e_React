@@ -45,14 +45,14 @@ export default function Login() {
                     <form onSubmit={handleLogin}>
                         <div className="form-group">
                             <label className="sr-only" htmlFor="cpf">Digite seu CPF</label>
-                            <input className="form-legal form-control" type="text" placeholder="CPF" id="cpf" 
+                            <input className="form-legal form-control" type="text" placeholder="CPF" id="cpf" required
                                 onChange={e => setCpf(e.target.value)}
                             />
                         </div> 
                         <div className="form-group">
                             <div className="input-group">
                                 <label className="sr-only" htmlFor="senha">Digite sua senha</label>
-                                <input className="form-legal form-control" type={visibilidadeSenha} placeholder="Senha"id="senha" 
+                                <input className="form-legal form-control" type={visibilidadeSenha} placeholder="Senha"id="senha" required 
                                     onChange= {e => setSenha(e.target.value)}
                                     style={{outline: 'none'}}
                                 />

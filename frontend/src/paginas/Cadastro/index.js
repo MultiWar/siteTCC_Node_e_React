@@ -29,9 +29,9 @@ export default function Cadastro() {
 
     async function handleSignIn(e) {
         e.preventDefault();
-
+        
         try {
-            const resultado = await api.post('/cadastro', data);
+            const resultado = await api.post('cadastro', data);
             contxt.setToken(resultado.data);
             localStorage.setItem('token', resultado.data);
             history.push('/');
@@ -96,7 +96,7 @@ export default function Cadastro() {
                             </div>
                         </div>
                         <div className="col-md-12">
-                            <div className="alert alert-danger" style={{display:`${displayAlert}`}}></div>
+                            <div className="alert alert-danger" style={{display:`${displayAlert}`}}>Eu acho que deu algo errado aí, hein</div>
                         </div>
                         <div className="form-row">
                             <div className="col-md-12">

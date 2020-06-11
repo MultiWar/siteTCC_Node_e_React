@@ -25,8 +25,8 @@ export default function Loja() {
                         pedasso.map((produto) =>
                             
                             <div className="card mx-2 text-center pt-2 justify-content-center">
-                                <small className="text-muted">{produto.categoria}</small>
                                 <h5 className="card-title">{produto.nomeProduto}</h5>
+                                <small className="text-muted">{produto.categoria[0].toUpperCase() + produto.categoria.slice(1)}</small>
                                 <img className="card-img-top img-fluid mx-auto" src={Imagem} style={{maxWidth: '300px'}}/>
                                 <div className="card-body">
                                     <p className="card-text">{produto.descricao}</p>

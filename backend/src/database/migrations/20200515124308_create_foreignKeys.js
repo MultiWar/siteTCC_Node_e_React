@@ -24,6 +24,10 @@ exports.up = function(knex) {
     table.foreign('idProduto').references('idProduto').inTable('tblProduto');
     table.foreign('idUser').references('idUser').inTabela('tblProduto');
   });
+  knex.schema.table('tblDetalhePedido', function(table) {
+    table.foreign('idPedido').references('idPedido').inTable('tblPedido');
+    table.foreign('tblProduto').references('idProduto').inTable('tblProduto');
+  });
 };
 
 exports.down = function(knex) {

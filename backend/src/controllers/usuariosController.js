@@ -8,25 +8,25 @@ const cors = require('cors');
 
 module.exports = {
     async cadastro(req, resp) {
-        const hash = crypto.createHash('sha256');
+        const hash = crypto.createHash('sha256');        
+        const { cpfD, senhaD, nomeD, foneD, enderecoD } = req.body;
+        let saltI = rand(256);
+        let senhaIntermed = saltI + senhaD;
+        let senhaIntermed2 = hash.update(senhaIntermed)
+        let senhaFinal = senhaIntermed2.digest("hex");   
+        const id = rand(16);
+        
         try {
-            const { cpfD, senhaD, nomeD, foneD, enderecoD } = req.body;
-            let saltI = rand(256);
-            let senhaIntermed = saltI + senhaD;
-            let senhaIntermed2 = hash.update(senhaIntermed)
-            let senhaFinal = senhaIntermed2.digest("hex");   
-            const id = rand(16);     
             const [user] = await connection('tblUser')
                 .where('cpf', cpfD)
                 .select('*');
             if (!user) {
-                const usuario = await connection('tblUser').insert(
+                await connection('tblUser').insert(
                     {'idUser':id, 'cpf': cpfD, 'senha': senhaFinal, 'salt': saltI, 'nome': nomeD, 'fone': foneD, 'endereco': enderecoD}
                 );
                 const token = jwt.sign({id: id, logged: true}, authConfig.secret, {
                     expiresIn: 86400
                 });
-                console.log(usuario);
                 return resp.send(token);
             }
             else {
@@ -34,7 +34,7 @@ module.exports = {
             }
         }
         catch (err) {
-            return resp.send(err);
+            return console.log(err);
         }
     },
     async entrar(req, resp) {
@@ -66,6 +66,6 @@ module.exports = {
     },
     async sair(req, resp) {
         resp.header = {};
-        return resp.redirect('http://localhost:3001/')
+        return resp.redirect('http://localhost:3000/')
     }
 }
