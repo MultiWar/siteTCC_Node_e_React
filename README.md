@@ -1,6 +1,8 @@
 # Conteúdos do readme
 [Apresentação do projeto](https://github.com/MultiWar/siteTCC_Node_e_React#apresenta%C3%A7%C3%A3o-do-projeto)
+
 [Rodando o projeto no seu PC](https://github.com/MultiWar/siteTCC_Node_e_React#rodando-o-projeto-no-seu-pc)
+
 [Como contribuir para o projeto](https://github.com/MultiWar/siteTCC_Node_e_React#contribuindo-para-o-projeto)
 
 
