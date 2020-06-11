@@ -1,3 +1,10 @@
+# Conteúdos do readme
+[Apresentação do projeto](https://github.com/MultiWar/siteTCC_Node_e_React#apresenta%C3%A7%C3%A3o-do-projeto)
+[Rodando o projeto no seu PC](https://github.com/MultiWar/siteTCC_Node_e_React#rodando-o-projeto-no-seu-pc)
+[Como contribuir para o projeto](https://github.com/MultiWar/siteTCC_Node_e_React#contribuindo-para-o-projeto)
+
+
+
 # Apresentação do projeto
   TCC do grupo A de informática (entrega em 2020). Este não é o TCC completo, mas é a parte dele que eu fiz. É uma aplicação web com o 
 backend feito em Node e o frontend feito em React. Apesar de termos um banco de dados em SQLServer pro projeto, eu estou utilizando o knex com o sqlite3, pois achei mais simples quando comecei. Eventualmente, vou passar ele pro SQLServer, para que essa aplicação interaja com o resto do trabalho.
