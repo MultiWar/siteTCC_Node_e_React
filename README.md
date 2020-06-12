@@ -28,7 +28,7 @@ Coisas legais utilizadas para a construção do projeto: Node, Express, Axios, K
   Para instalar as dependências do projeto, basta abrir o diretório do backend no PowerShell ou algum outro terminal de sua escolha e rodar o comando ```npm install```. Aguarde e ele instalará tudo do backend. Faça o mesmo no frontend.
 
 ## Iniciando o server e populando o banco de dados
-  Ainda no diretório do backend, rode os comandos ```npx knex migrate:latest``` e ```npx knex seed:run```. Depois, rode ```npm run dev``` para iniciar o servidor. Mantenha este terminal aberto.
+  Ainda no diretório do backend, rode os comandos ```npx knex migrate:latest``` e ```npx knex seed:run```. Depois, rode ```npm start``` para iniciar o servidor. Mantenha este terminal aberto.
 
 ## Iniciando a aplicação React
   Ainda com o terminal do backend aberto e rodando, abra outro terminal, vá até o diretório do frontend e rode o comando ```npm start```. Aguarde o site abrir no seu navegador e pronto!
