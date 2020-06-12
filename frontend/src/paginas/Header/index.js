@@ -1,10 +1,9 @@
-import React, {useState, useContext} from 'react';
+import React, { useContext} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FaSearch} from 'react-icons/fa';
 import Cont from '../../services/context';
 
 import './styles.css';
-import api from '../../services/api';
 
 export default function Header () {
     

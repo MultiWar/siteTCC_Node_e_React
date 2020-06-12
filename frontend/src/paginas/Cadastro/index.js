@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {FaRegEyeSlash, FaRegEye} from 'react-icons/fa';
+import {FaRegEyeSlash, FaRegEye, FaArrowRight} from 'react-icons/fa';
 
 import './styles.css';
 import api from '../../services/api';
@@ -10,7 +10,6 @@ export default function Cadastro() {
 
     const [visibilidadeSenha, setVisibilidadeSenha] = useState('password');
     const [displayAlert, setDisplayAlert] = useState('none');
-    const [mensagemDeErro, setMensagemDeErro] = useState('');
     const [nome, setNome] = useState('');
     const [senha, setSenha] = useState('');
     const [cpf, setCpf] = useState('');
@@ -76,8 +75,8 @@ export default function Cadastro() {
                                 <div className="input-group-append">
                                     <label htmlFor="mostrarSenha" className="sr-only">Mostrar ou esconder senha</label>
                                     {visibilidadeSenha === 'password' ? 
-                                    (<a className="btn btn-outline-primary w-100" onClick={() => setVisibilidadeSenha('text')} id="mostrarSenha"><FaRegEyeSlash /></a>) : 
-                                    (<a className="btn btn-outline-primary w-100" onClick={() => setVisibilidadeSenha('password')} id="mostrarSenha"><FaRegEye /></a>)}
+                                    (<button className="btn btn-outline-primary w-100" onClick={() => setVisibilidadeSenha('text')} id="mostrarSenha"><FaRegEyeSlash /></button>) : 
+                                    (<button className="btn btn-outline-primary w-100" onClick={() => setVisibilidadeSenha('password')} id="mostrarSenha"><FaRegEye /></button>)}
                                 </div>
                             </div>
                         </div>
@@ -101,6 +100,7 @@ export default function Cadastro() {
                         <div className="form-row">
                             <div className="col-md-12">
                                 <button className="btn btn-primary w-100" type="submit">Cadastrar</button>
+                                <Link to="/login" className="linkLogin">Já possui uma conta? Clique aqui para entrar <FaArrowRight /></Link>
                             </div>
                         </div>
                     </form>

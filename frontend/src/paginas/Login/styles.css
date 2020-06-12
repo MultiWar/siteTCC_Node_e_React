@@ -40,3 +40,15 @@
     background: transparent !important;
     color: #333 !important;
 }
+
+.linkCadastro {
+    color:#0b5bdb;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.linkCadastro:hover {
+    color:#0b5bdb;
+    text-decoration: none;
+    font-size: 17px;
+}

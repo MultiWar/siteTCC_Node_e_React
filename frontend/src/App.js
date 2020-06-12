@@ -14,6 +14,7 @@ import Tarja from './paginas/Tarja';
 import PrincipioAtivo from './paginas/PrincipioAtivo';
 import EditarConta from './paginas/EditarConta/index';
 import Cont from './services/context';
+import Carrinho from './paginas/Carrinho';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token') ?? '');
@@ -27,7 +28,7 @@ function App() {
         if(localStorageToken) {
             setToken(localStorageToken)
         }
-    });
+    }, []);
 
     return (
         <BrowserRouter>
@@ -38,7 +39,8 @@ function App() {
                     <Route path="/Login" component={Login} />
                     <Route path="/Conta" exact component={Conta} />
                     <Route path="/Conta/editar" component={EditarConta} />
-                    <Route path="/Cadastro" component={Cadastro} />
+                    <Route path="/Cadastro" component={Cadastro} /> 
+                    <Route path="/carrinho" component={Carrinho} /> 
                 </Switch>
             </Cont.Provider>
         </BrowserRouter>

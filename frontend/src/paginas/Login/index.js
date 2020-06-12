@@ -1,7 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {FiEyeOff, FiEye} from "react-icons/fi";
-import {BsFillEyeFill, BsFillEyeSlashFill} from 'react-icons/bs';
-import {FaRegEyeSlash, FaRegEye} from 'react-icons/fa';
+import {FaRegEyeSlash, FaRegEye, FaArrowLeft} from 'react-icons/fa';
 import {Link, useHistory} from 'react-router-dom';
 import Cont from '../../services/context';
 
@@ -31,13 +29,11 @@ export default function Login() {
         }
     }
 
-    let estado = 'password';
-
     return (
         <div className="container-fluid pt-2">
             <div className="row justify-content-center">
                 <div className="col-lg-2 justify-content-center">
-                    <img src={imgConta} className="img-fluid mx-auto d-block"/>
+                    <img src={imgConta} className="img-fluid mx-auto d-block" alt=""/>
                 </div>
             </div>
             <div className="row justify-content-center">
@@ -59,14 +55,15 @@ export default function Login() {
                                 <div className="input-group-append">
                                     <label htmlFor="mostrarSenha" className="sr-only">Mostrar/Esconder senha</label>
                                     {visibilidadeSenha === 'password' ? 
-                                    (<a className="btn btn-outline-primary btn-showHide" onClick={() => setVisibilidadeSenha('text')} id="mostrarSenha"><FaRegEyeSlash className="iconeShowHide" /></a>) : 
-                                    (<a className="btn btn-outline-primary btn-showHide" onClick={() => setVisibilidadeSenha('password')} id="mostrarSenha"><FaRegEye className="iconeShowHide" /></a>)}
+                                    (<button className="btn btn-outline-primary btn-showHide" onClick={() => setVisibilidadeSenha('text')} id="mostrarSenha"><FaRegEyeSlash className="iconeShowHide"/></button>) : 
+                                    (<button className="btn btn-outline-primary btn-showHide" onClick={() => setVisibilidadeSenha('password')} id="mostrarSenha"><FaRegEye className="iconeShowHide"/></button>)}
                                 </div>
                             </div>
                         </div>
                         <div className="alert alert-danger" style={{display: `${displayAlert}`}}>Falha no login</div>
                         <button className="btn btn-primary form-control" type="submit">Entrar</button>               
                     </form>
+                    <Link to="/cadastro" className="linkCadastro"><FaArrowLeft /> Não tem uma conta ainda? clique aqui para se cadastrar.</Link>
                 </div>
             </div>
         </div>

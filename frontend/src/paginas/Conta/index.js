@@ -1,21 +1,24 @@
-import React, {useState, useContext, useEffect} from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import throttle from 'lodash.throttle';
-import Cont from '../../services/context';
+import React, {useState, /* useContext,*/ useLayoutEffect} from 'react';
+import {Link} from 'react-router-dom';
+//import throttle from 'lodash.throttle';
+//import Cont from '../../services/context';
 
 import './styles.css';
 import api from '../../services/api';
 
 export default function Conta() {
     const [informacoes, setInformacoes] = useState({});
-    let contxt = useContext(Cont);
+    const [headerToken, setHeaderToken] = useState('');
+    //let contxt = useContext(Cont);
 
-    useEffect(() => {
+    setHeaderToken(api.defaults.headers.common['Authorization']);
+
+    useLayoutEffect(() => {
             api.get('/conta')
                 .then((coisas) => {
             setInformacoes(coisas.data)
         })
-    }, [api.defaults.headers.common['Authorization']]);
+    }, [headerToken]);
 
     return (
         <div className="container-fluid">

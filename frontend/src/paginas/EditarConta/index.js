@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Cont from '../../services/context';
 
@@ -21,12 +21,15 @@ export default function EditarConta() {
         history.push('/');
     }
 
-    useEffect(() => {
+    const [headerToken, setHeaderToken] = useState('');
+    setHeaderToken(api.defaults.headers.common['Authorization']);
+
+    useLayoutEffect(() => {
         api.get('/conta')
             .then((coisas) => {
                 setDados(coisas.data)
             });
-    }, [api.defaults.headers.common['Authorization']]);
+    }, [headerToken]);
 
     useEffect(() => {
         api.put('/conta/editar', {foneD: dados.fone, enderecoD: dados.endereco})
@@ -100,7 +103,7 @@ export default function EditarConta() {
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to='/Conta'>Conta</Link></li>
-                                <li className="breadcrumb-item active" aria-currente="page">Editar</li>
+                                <li className="breadcrumb-item active" aria-current="page">Editar</li>
                             </ol>
                         </nav>
                     </div>
