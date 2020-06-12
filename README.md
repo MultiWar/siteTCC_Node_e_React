@@ -17,7 +17,7 @@ Coisas legais utilizadas para a construção do projeto: Node, Express, Axios, K
   Nosso projeto de TCC é o de uma farmácia, que tem como principal objetivo a facilitação da vida de pessoas idosas. Este objetivo é refletido no site através da opção de selecionar tamanhos de fontes diferentes e de deixar as coisas maiores no geral, além de designs simples e sem muitas coisas implícitas.
   O site é a parte da loja da farmácia, principalmente. Nele, é possível visualizar os produtos e comprá-los.
 
-## Agradeicmentos
+## Agradecimentos
   Só foi possível realizar tudo o que foi realizado por causa da ajuda do grande [@savioacp](https://github.com/savioacp), que me auxiliou bastante durante o desenvolvimento do projeto, me ajudando a resolver problemas e me ensinando alguns conceitos.
 
 # Rodando o projeto no seu PC
