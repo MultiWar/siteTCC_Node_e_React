@@ -8,12 +8,49 @@ export default function Carrinho() {
 
     const [itensCarrinho, setItensCarrinho] = useState([]);
     const [quantidade, setQuantidade] = useState([]);
+    const [itemCarrinhoDeletar, setItemCarrinhoDeletar] = useState('');
 
+    //Carregar informações iniciais
     useEffect(() => {
         api.get('/carrinho').then(itens => {
             setItensCarrinho(itens.data);
         })
     }, [itensCarrinho]);
+
+    //Alterar quantidade de algum item
+    useEffect(() => {
+        api.put('/carrinho', quantidade).then(e => {
+            console.log(e);
+        });
+    }, [quantidade]);
+
+    useEffect(() => {
+        api.delete('/carrinho', itemCarrinhoDeletar).then(e => {
+            console.log(e);
+        })
+    }, [itemCarrinhoDeletar])
+
+    function handleAlterarQuantidade(idProduto, quantidadeItem) {
+        function NaoDuplicarItens(idProduto2) {
+            return quantidade.filter(e => {
+                return e.idProduto !== idProduto2;
+            })
+        }
+        const quantidadeAtualizada = NaoDuplicarItens(idProduto);
+
+        setQuantidade([...quantidadeAtualizada, {idProduto, quantidade: Number(quantidadeItem)}]);        
+    }
+
+    function handleDeletarProduto(idProdutoClicado) {
+        setItemCarrinhoDeletar(idProdutoClicado);
+        function atualizarItens(idProdutoClicadoMesmo) {
+            return itensCarrinho.filter(e => {
+                return e.idProduto !== idProdutoClicadoMesmo;
+            })
+        }
+        const itensAtualizados = atualizarItens(idProdutoClicado);
+        setItensCarrinho(itensAtualizados);
+    }
 
     return (
         <div className="container-fluid">
@@ -37,13 +74,7 @@ export default function Carrinho() {
                                                 <p>quantidade:</p>
                                             </div>
                                             <div className="col">
-                                                <select type="number" name="quantidade" onChange={e => {
-                                                    //quantidade.map(itemQuantidade => {
-                                                        
-                                                    //})
-
-                                                    setQuantidade([...quantidade, {idProduto: item.idProduto, quantidade: e.target.value}])}}
-                                                >
+                                                <select type="number" name="quantidade" onChange={e => handleAlterarQuantidade(item.idProduto, e.target.value)}>
                                                     <option value={item.quantidade}>{item.quantidade}</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -60,7 +91,7 @@ export default function Carrinho() {
                                         </div>
                                     </div>
                                     <div className="col-1">
-                                        <button className="btn btn-outline-danger"><FaTimes size={30}/></button>
+                                        <button className="btn btn-outline-danger" onClick={e => handleDeletarProduto(item.idProduto)}><FaTimes size={30}/></button>
                                     </div>
                                 </div>
                             </li>
@@ -69,16 +100,6 @@ export default function Carrinho() {
                     <div className="col-2"></div>
                 </div>
             ))}
-            <div className="teste">
-                {quantidade.map(itemQuantidade => {
-                    return (
-                        <div key={itemQuantidade.idProduto}>
-                            <p>ID:{itemQuantidade.idProduto}</p>
-                            <p>quantidade:{itemQuantidade.quantidade}</p>
-                        </div>
-                    )
-                })}
-            </div>
         </div>
     )
 }

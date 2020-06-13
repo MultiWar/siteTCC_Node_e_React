@@ -29,7 +29,7 @@ module.exports = {
 
     async adicionar(request, response) {
         const userId = request.userId;
-        const produtoId = request.body.produtoId;
+        const idProduto = request.body.idProduto;
         const quantidade = request.body.quantidade;
 
         try {
@@ -43,7 +43,7 @@ module.exports = {
             const teste = await connection('tblDetalhesPedido')
                 .insert({
                     idPedido: pedidoEmAndamento.idPedido,
-                    idProduto: produtoId,
+                    idProduto: idProduto,
                     quantidade: quantidade
                 });
             return response.status(200).send('Nice');
@@ -55,24 +55,25 @@ module.exports = {
 
     async alterar(request, response) {
         const userId = request.userId;
-        const produtoId = request.body.produtoId;
-        const quantidade = request.body.quantidade;
-
         try {
-            const pedidoEmAndamento = await connection('tblPedido')
-                                .where({
-                                    status: 'em andamento',
-                                    idUser: userId
-                                })
-                                .first('tblPedido.idPedido');
-            const teste = await connection('tblDetalhesPedido')
-                .where({
-                    idPedido: pedidoEmAndamento.idPedido,
-                    idProduto: produtoId
-                })
-                .update({
-                    quantidade: quantidade
-                });
+            request.body.map(async produto => {
+                const idProduto = produto.idProduto;
+                const quantidade = produto.quantidade;                
+                const pedidoEmAndamento = await connection('tblPedido')
+                                    .where({
+                                        status: 'em andamento',
+                                        idUser: userId
+                                    })
+                                    .first('tblPedido.idPedido');
+                const teste = await connection('tblDetalhesPedido')
+                    .where({
+                        idPedido: pedidoEmAndamento.idPedido,
+                        idProduto
+                    })
+                    .update({
+                        quantidade
+                    });
+            });
             return response.status(200).send('Nice');
         }
         catch(err) {
@@ -82,7 +83,7 @@ module.exports = {
 
     async deletar(request, response) {
         const userId = request.userId;
-        const produtoId = request.body.produtoId;
+        const idProduto = request.body.idProduto;
 
         try {
             const pedidoEmAndamento = await connection('tblPedido')
@@ -95,7 +96,7 @@ module.exports = {
             const teste = await connection('tblDetalhesPedido')
                 .where({
                     idPedido: pedidoEmAndamento.idPedido,
-                    idProduto: produtoId
+                    idProduto
                 })
                 .del('*');
             return response.status(200).send('Nice')
